@@ -5,6 +5,9 @@
 #support unlimited color temperature adjust
 ro.colorpick_adjust=true
 
+#property for non-game mode panel direction
+ro.vendor.touchfeature.type=2
+
 # System property for AD
 ro.vendor.display.ad=1
 ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
@@ -14,24 +17,27 @@ ro.vendor.display.sensortype=2
 # prop for amoled panel
 ro.display.type=oled
 
+ro.fod.dimlayer.enable=1
+
 # displayfeature use poll to monitor backlight brightness
-ro.xiaomi.bl.poll=true
+ro.vendor.bl.poll=true
 #support night mode 2.0
-ro.eyecare.brightness.threshold=11
-ro.eyecare.brightness.level=5
-ro.hist.brightness.threshold=7
+ro.vendor.eyecare.threshold=11
+ro.vendor.eyecare.level=5
+ro.vendor.hist.threshold=7
 
 # White Point Calibration
-ro.whitepoint_calibration_enable=false
+ro.vendor.whitepoint_calibration_enable=false
 
 #Property for display feature histogram
-ro.displayfeature.histogram.enable=true
+ro.vendor.histogram.enable=true
 
-#property for non-game mode panel direction
-ro.vendor.touchfeature.type=2
+#support LLM2.0 feature
+ro.vendor.radio.llm=true
 #
 # from device/xiaomi/sm6150_common/common_ro.prop
 #
+
 #
 # from device/xiaomi/sm6150_common/system.prop
 #
@@ -110,7 +116,6 @@ persist.radio.VT_CAM_INTERFACE=1
 
 #disble rcs service
 persist.rcs.supported=0
-# Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
 
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
@@ -130,6 +135,7 @@ media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-scan=true
+media.stagefright.thumbnail.prefer_hw_codecs=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 mm.enable.smoothstreaming=true
@@ -178,6 +184,11 @@ ro.wlan.vendor=qcom
 ro.wlan.chip=39xx
 ro.wlan.mimo=0
 
+#sysprop used for WLAN for Android q version
+ro.hardware.wlan.vendor=qcom
+ro.hardware.wlan.chip=39xx
+ro.hardware.wlan.mimo=1
+
 #
 #snapdragon value add features
 #
@@ -189,6 +200,10 @@ persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
 
+#button jack mode & switch
+persist.audio.button_jack.profile=volume
+persist.audio.button_jack.switch=0
+
 #system prop for RmNet Data
 persist.data.df.dev_name=rmnet_usb0
 
@@ -196,6 +211,9 @@ persist.data.df.dev_name=rmnet_usb0
 persist.debug.wfd.enable=1
 ##property to choose between virtual/external wfd display
 persist.sys.wfd.virtual=0
+
+#property to enable HWC for VDS
+debug.sf.enable_hwc_vds=1
 
 # enable tunnel encoding for amrwb
 tunnel.audio.encode = true
@@ -221,9 +239,6 @@ sys.qca1530=detect
 #Enable stm events
 persist.debug.coresight.config=stm-events
 
-#Enable virtual display.
-debug.sf.enable_hwc_vds=1
-
 #hwui properties
 ro.hwui.texture_cache_size=72
 ro.hwui.layer_cache_size=48
@@ -244,75 +259,57 @@ persist.radio.atfwd.start=false
 ro.kernel.qemu.gles=0
 qemu.hw.mainkeys=0
 
-#Increase cached app limit
-#ro.vendor.qti.sys.fw.bg_apps_limit=60
-
-#Enable ZRAM
-ro.vendor.qti.config.zram=true
-
-#IOP properties
-vendor.iop.enable_uxe=0
-vendor.iop.enable_prefetch_ofr=0
-
-#Property to enable perf boosts from System Server
-vendor.perf.gestureflingboost.enable=true
-
 #logd buffer size
 ro.logd.size=2M
 
-#Property to enable WorkloadClassifier
-vendor.perf.workloadclassifier.enable=true
-
 #Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.xiaomi.runin,com.xiaomi.cameratest,com.xiaomi.factory.mmi
-
-# ro.location properties below are used in conjunction
-# with NLP_MODE setting in /vendor/etc/izat.conf
-# either as the main network provider or as a fallback
-# provider depending on NLP_MODE that is set
-# These properties are optional and will not cause
-# issues if not set to existing packages.
-# ro.location.osnlp.package sets the name of default
-# OS sepecific network location provider package to use
-# ro.location.osnlp.region.package is set to the name
-# of the alternative network location provider package
-# to be used for a particular region where the default
-# network location provider is not functional
-ro.location.osnlp.package=com.google.android.gms
-ro.location.osnlp.region.package=
-vendor.perf.dolphin.enable=true
+vendor.camera.aux.packagelist=com.android.camera,com.miui.cit,com.xiaomi.cameratest,com.xiaomi.factory.mmi
+vendor.camera.aux.packagelist.ext=,org.codeaurora.snapcam,com.xiaomi.runin
+#enable RIL feature abot reporting data registration state
+persist.vendor.radio.data_con_rprt=1
 
 # enable b-services aging propagation
 ro.vendor.qti.sys.fw.bservice_enable=true
 
-#enable manual network reject counter feature to count the number of indication instead of timer for LOCATION_UPDATE_REJECT
-persist.vendor.radio.manual_nw_rej_ct=1
+# enable temp dds
+persist.vendor.radio.enable_temp_dds=true
 
-#enable RIL feature abot reporting data registration state
-persist.vendor.radio.data_con_rprt=1
+# property to latch unsignaled buffer
+debug.sf.latch_unsignaled=1
+
+#set property to avoid printing IMS_DataD message
+persist.vendor.ims.disableADBLogs=1
+persist.vendor.ims.disableIMSLogs=1
+# end of device/xiaomi/sm6150_common/system.prop
 #
 # from device/xiaomi/sm6150_common/common_rw.prop
 #
+#quick charge type detect
+persist.vendor.quick.charge=1
 #
 # from device/xiaomi/tucana/special_rw.prop
 #
 #modem SAR backoff properties
 persist.radio.dynamic_sar=true
 
+#modem sku and ap hwc match-check
+persist.radio.skhwc_matchres=null
+
 #pecial rw override property
 #system property for displayfeature hidl
 sys.displayfeature_hidl=true
 #system property for HBM mode
-sys.displayfeature.hbm.enable=true
+vendor.hbm.enable=true
 #system property for DC backlight
-persist.displayfeature.dc_backlight.enable=false
+persist.vendor.dc_backlight.enable=false
 
 #system prop for Bluetooth TWS+ feature
 persist.vendor.btstack.enable.twsplus=true
 persist.vendor.btstack.connect.peer_earbud=true
+persist.vendor.btstack.enable.twsplussho=true
 
 #system prop for Buetooth PL10 feature
-persist.vendor.bluetooth.plx=false
+persist.vendor.bluetooth.plx=true
 
 #dualcam sat fallback setting
 persist.camera.sat.fallback.dist=40
@@ -320,10 +317,7 @@ persist.camera.sat.fallback.dist.d=10
 persist.camera.sat.fallback.luxindex=330
 persist.camera.sat.fallback.lux.d=50
 
-#quick charge type detect
-persist.quick.charge.detect=1
-
-#modem sku and ap hwc match-check
-persist.radio.skhwc_matchres=null
+#disable hvdcp_opti deamon pps control
+persist.vendor.pps.disallowed=1
 
 #

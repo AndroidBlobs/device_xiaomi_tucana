@@ -19,8 +19,8 @@
 <ctl name="PRIM_MI2S_RX SampleRate" value="KHZ_48" />
 <ctl name="PRIM_MI2S_RX Format" value="S24_LE" />
 <ctl name="PRIM_MI2S_TX Format" value="S24_LE" />
-<ctl name="RX_CDC_DMA_RX_0 SampleRate" value="KHZ_96" />
-<ctl name="TX_CDC_DMA_TX_3 SampleRate" value="KHZ_96" />
+
+<ctl name="ADC3_MIXER Switch" value="1" />
 
     <path name="deep-buffer-playback speaker-protected">
         <path name="deep-buffer-playback speaker" />
@@ -463,34 +463,28 @@
     </path>
 
     <path name="handset">
+        <!--RX_EAR Mode need set first. classh needs to close when in ear mode(rx macro)
+        or not ear with classh will cause noise(rx_priv->is_ear_mode_on)-->
+        <ctl name="RX_EAR Mode" value="ON" />
         <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB" />
         <ctl name="RX_CDC_DMA_RX_0 Channels" value="One" />
         <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
         <ctl name="RX_COMP1 Switch" value="0" />
         <ctl name="RX_COMP2 Switch" value="0" />
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="EAR_RDAC Switch" value="1" />
-        <ctl name="RDAC3_MUX" value="RX1" />
-        <ctl name="RX_EAR Mode" value="ON" />
-        <ctl name="EAR PA GAIN" value="G_6_DB" />
-    </path>
 
-    <path name="voice-handset">
-        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB" />
-        <ctl name="RX_CDC_DMA_RX_0 Channels" value="One" />
-        <ctl name="RX_CDC_DMA_RX_0 SampleRate" value="KHZ_96" />
-        <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
-        <ctl name="RX_COMP1 Switch" value="0" />
-        <ctl name="RX_COMP2 Switch" value="0" />
-        <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
+        <ctl name="Ultrasound Enable" value="On" />
+        <ctl name="RX_CDC_DMA_RX_1 SampleRate" value="KHZ_96" />
+        <ctl name="RX_CDC_DMA_RX_1 Channels" value="One" />
+        <ctl name="RX_MACRO RX2 MUX" value="AIF2_PB" />
+        <ctl name="RX INT0_2 MUX" value="RX2" />
+
         <ctl name="EAR_RDAC Switch" value="1" />
         <ctl name="RDAC3_MUX" value="RX1" />
-        <ctl name="RX_EAR Mode" value="ON" />
         <ctl name="EAR PA GAIN" value="G_6_DB" />
     </path>
 
     <path name="handset-mic">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -504,22 +498,6 @@
         <ctl name="ADC1 Volume" value="6" />
     </path>
 
-    <path name="voice-rec-mic">
-        <ctl name="Ultrasound Microphone Index" value="1" />
-        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
-        <ctl name="TX DEC0 MUX" value="SWR_MIC" />
-        <ctl name="TX SMIC MUX0" value="ADC0" />
-        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
-        <ctl name="ADC1_MIXER Switch" value="1" />
-        <ctl name="TX DEC1 MUX" value="SWR_MIC" />
-        <ctl name="TX SMIC MUX1" value="ADC3" />
-        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
-        <ctl name="ADC3_MIXER Switch" value="1" />
-        <ctl name="ADC3 Volume" value="12" />
-        <ctl name="ADC1 Volume" value="12" />
-    </path>
-
-
     <path name="speaker-mic">
         <path name="amic1" />
     </path>
@@ -532,6 +510,7 @@
         <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB" />
         <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB" />
         <ctl name="RX_CDC_DMA_RX_0 Channels" value="Two" />
+        <ctl name="RX_CDC_DMA_RX_0 SampleRate" value="KHZ_96" />
         <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX1" />
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
@@ -562,7 +541,6 @@
 
     <!-- Dual MIC devices -->
     <path name="handset-dmic-endfire">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX_CDC_DMA_TX_3 SampleRate" value="KHZ_96" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
@@ -578,7 +556,6 @@
     </path>
 
     <path name="speaker-dmic-endfire">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -593,17 +570,7 @@
     </path>
 
     <path name="voice-dmic-ef">
-        <ctl name="Ultrasound Microphone Index" value="1" />
-        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
-        <ctl name="TX_CDC_DMA_TX_3 SampleRate" value="KHZ_96" />
-        <ctl name="TX DEC0 MUX" value="SWR_MIC" />
-        <ctl name="TX SMIC MUX0" value="ADC0" />
-        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
-        <ctl name="ADC1_MIXER Switch" value="1" />
-        <ctl name="TX DEC1 MUX" value="SWR_MIC" />
-        <ctl name="TX SMIC MUX1" value="ADC3" />
-        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
-        <ctl name="ADC3_MIXER Switch" value="1" />
+        <path name="dmic-endfire" />
         <ctl name="ADC3 Volume" value="12" />
         <ctl name="ADC1 Volume" value="12" />
     </path>
@@ -622,7 +589,6 @@
     </path>
 
     <path name="camcorder-dmic">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -637,7 +603,6 @@
     </path>
 
     <path name="handset-dmic-music">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -652,7 +617,6 @@
     </path>
 
     <path name="handset-dmic-voice">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -667,7 +631,6 @@
     </path>
 
     <path name="handset-dmic-interview">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -682,7 +645,6 @@
     </path>
 
     <path name="handset-dmic-hd">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -696,7 +658,6 @@
         <ctl name="ADC1 Volume" value="6" />
     </path>
     <path name="handset-stereo-dmic-ef">
-        <ctl name="Ultrasound Microphone Index" value="1" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -708,6 +669,43 @@
         <ctl name="ADC3_MIXER Switch" value="1" />
         <ctl name="ADC3 Volume" value="6" />
         <ctl name="ADC1 Volume" value="6" />
+    </path>
+
+    <path name="asr-mic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
+        <ctl name="TX DEC0 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX0" value="ADC0" />
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
+        <ctl name="ADC1_MIXER Switch" value="1" />
+        <ctl name="TX DEC1 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX1" value="ADC3" />
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
+        <ctl name="ADC3_MIXER Switch" value="1" />
+        <ctl name="ADC3 Volume" value="6" />
+        <ctl name="ADC1 Volume" value="6" />
+    </path>
+
+    <path name="va-enroll-mic">
+        <ctl name="TX_CDC_DMA_TX_4 Channels" value="One" />
+        <ctl name="TX DEC2 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX2" value="ADC3" />
+        <ctl name="TX_AIF2_CAP Mixer DEC2" value="1" />
+        <ctl name="ADC3_MIXER Switch" value="1" />
+        <ctl name="ADC3 Volume" value="6" />
+    </path>
+
+    <path name="voice-rec-mic">
+        <path name="handset-mic" />
+        <ctl name="ADC3 Volume" value="12" />
+        <ctl name="ADC1 Volume" value="12" />
+    </path>
+
+    <path name="ultrasound-proximity">
+        <ctl name="Ultrasound Enable" value="On" />
+        <ctl name="Ultrasound Mode" value="672" />
+        <!--<ctl name="Ultrasound Debug Mode" value="1" />
+        <ctl name="Ultrasound Log Level" value="7" /> -->
+        <ctl name="Ultrasound Custom Setting 1" value="1" />
     </path>
 
 </mixer>
