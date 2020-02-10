@@ -27,8 +27,6 @@ ro.whitepoint_calibration_enable=false
 #Property for display feature histogram
 ro.displayfeature.histogram.enable=true
 
-#property for non-game mode panel direction
-ro.vendor.touchfeature.type=2
 #
 # from device/xiaomi/sm6150_common/common_ro.prop
 #
