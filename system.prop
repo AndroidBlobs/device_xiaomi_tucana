@@ -14,8 +14,6 @@ ro.vendor.display.sensortype=2
 # prop for amoled panel
 ro.display.type=oled
 
-ro.fod.dimlayer.enable=1
-
 # displayfeature use poll to monitor backlight brightness
 ro.xiaomi.bl.poll=true
 #support night mode 2.0
