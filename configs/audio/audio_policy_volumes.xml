@@ -77,7 +77,7 @@ volume index from 0 to 100.
         <point>1,-6500</point>
         <point>33,-4500</point>
         <point>73,-1400</point>
-        <point>100,0</point>
+        <point>100,-30</point>
     </volume>
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_SPEAKER"
                                         ref="DEFAULT_DEVICE_CATEGORY_SPEAKER_VOLUME_CURVE"/>

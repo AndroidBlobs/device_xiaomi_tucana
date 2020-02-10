@@ -34,6 +34,7 @@ vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvdsp_skel.so
 vendor/lib/rfsa/adsp/libhexagon_nn_skel.so
 vendor/lib/rfsa/adsp/libhexagon_nn_skel_secondary.so
+vendor/lib/rfsa/adsp/libhta_dsp_skel.so
 vendor/lib/rfsa/adsp/libremosaichvx_skel.so
 vendor/lib/rfsa/adsp/libsns_device_mode_skel.so
 vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
@@ -317,11 +318,17 @@ vendor/lib/camera/com.qti.sensormodule.tucana_sunny_ov02a10.bin
 vendor/lib/camera/com.qti.sensormodule.tucana_sunny_s5kgd1.bin
 vendor/lib/camera/com.qti.tuned.default.bin
 vendor/lib/camera/com.qti.tuned.tucana_semco_imx350.bin
+vendor/lib/camera/com.qti.tuned.tucana_semco_imx350_global.bin
 vendor/lib/camera/com.qti.tuned.tucana_semco_ov08a10.bin
+vendor/lib/camera/com.qti.tuned.tucana_semco_ov08a10_global.bin
 vendor/lib/camera/com.qti.tuned.tucana_semco_s5k2l7.bin
+vendor/lib/camera/com.qti.tuned.tucana_semco_s5k2l7_global.bin
 vendor/lib/camera/com.qti.tuned.tucana_semco_s5khmx.bin
 vendor/lib/camera/com.qti.tuned.tucana_semco_s5khmx_8plens.bin
+vendor/lib/camera/com.qti.tuned.tucana_semco_s5khmx_8plens_global.bin
+vendor/lib/camera/com.qti.tuned.tucana_semco_s5khmx_global.bin
 vendor/lib/camera/com.qti.tuned.tucana_sunny_ov02a10.bin
+vendor/lib/camera/com.qti.tuned.tucana_sunny_ov02a10_global.bin
 vendor/lib/camera/com.qti.tuned.tucana_sunny_s5kgd1.bin
 vendor/lib/camera/com.qti.tuned.tucana_sunny_s5kgd1_global.bin
 vendor/lib/camera/components/com.almalence.node.sr.so
@@ -421,11 +428,17 @@ vendor/lib64/camera/com.qti.sensormodule.tucana_sunny_ov02a10.bin
 vendor/lib64/camera/com.qti.sensormodule.tucana_sunny_s5kgd1.bin
 vendor/lib64/camera/com.qti.tuned.default.bin
 vendor/lib64/camera/com.qti.tuned.tucana_semco_imx350.bin
+vendor/lib64/camera/com.qti.tuned.tucana_semco_imx350_global.bin
 vendor/lib64/camera/com.qti.tuned.tucana_semco_ov08a10.bin
+vendor/lib64/camera/com.qti.tuned.tucana_semco_ov08a10_global.bin
 vendor/lib64/camera/com.qti.tuned.tucana_semco_s5k2l7.bin
+vendor/lib64/camera/com.qti.tuned.tucana_semco_s5k2l7_global.bin
 vendor/lib64/camera/com.qti.tuned.tucana_semco_s5khmx.bin
 vendor/lib64/camera/com.qti.tuned.tucana_semco_s5khmx_8plens.bin
+vendor/lib64/camera/com.qti.tuned.tucana_semco_s5khmx_8plens_global.bin
+vendor/lib64/camera/com.qti.tuned.tucana_semco_s5khmx_global.bin
 vendor/lib64/camera/com.qti.tuned.tucana_sunny_ov02a10.bin
+vendor/lib64/camera/com.qti.tuned.tucana_sunny_ov02a10_global.bin
 vendor/lib64/camera/com.qti.tuned.tucana_sunny_s5kgd1.bin
 vendor/lib64/camera/com.qti.tuned.tucana_sunny_s5kgd1_global.bin
 vendor/lib64/camera/components/com.almalence.node.sr.so
@@ -623,6 +636,7 @@ vendor/etc/camera/morpho_lowlight4.0.xml
 vendor/etc/camera/morpho_lowlight4.0_3hdr.xml
 vendor/etc/camera/morpho_lowlight4.0_adrc_high.xml
 vendor/etc/camera/morpho_lowlight4.0_adrc_high_1.xml
+vendor/etc/camera/multianchor.txt
 vendor/etc/camera/sceneDetection.xml
 vendor/etc/camera/score_bg.png
 vendor/etc/camera/score_icon.png
@@ -683,7 +697,6 @@ vendor/lib/libGPQTEEC_vendor.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
 vendor/lib/libGPTEE_vendor.so
-vendor/lib/liboemcrypto.so
 vendor/lib/libqisl.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librmp.so
@@ -703,7 +716,6 @@ vendor/lib64/libGPQTEEC_vendor.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/liboemcrypto.so
 vendor/lib64/libqisl.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librmp.so
@@ -1811,6 +1823,7 @@ vendor/etc/sensors/config/sns_tilt_sw_enabled.json
 vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/tcs3701.json
 vendor/etc/sensors/config/vl53l1_tof_0.json
+vendor/etc/sensors/judge_calibrated.json
 vendor/etc/sensors/sns_reg_config
 
 # Sensors
@@ -2065,6 +2078,7 @@ vendor/bin/wdsdaemon
 vendor/etc/init.panel_info.sh
 
 # Misc
+-vendor/app/NotchOverlay/NotchOverlay.apk
 -vendor/app/SensorTestTool/SensorTestTool.apk
 vendor/bin/athdiag
 vendor/bin/batteryd
@@ -2108,11 +2122,11 @@ vendor/bin/vendor_cmd_tool
 vendor/bin/vsimd
 vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
--vendor/data-app/Miui_Fashiongallery_global_new/Miui_Fashiongallery_global_new.apk
--vendor/data-app/PeelMiRemote/PeelMiRemote.apk
--vendor/data-app/wps_lite/wps_lite.apk
+-vendor/data-app/aiasst_service/aiasst_service.apk
+-vendor/data-app/Health/Health.apk
+-vendor/data-app/SmartHome/SmartHome.apk
+-vendor/data-app/wps-lite/wps-lite.apk
 -vendor/data-app/XMRemoteController/XMRemoteController.apk
--vendor/data-app/YTMusic/YTMusic.apk
 vendor/etc/after_runin.xml
 vendor/etc/before_runin.xml
 vendor/etc/fast_test.xml
@@ -2127,7 +2141,6 @@ vendor/etc/init/qdcmss.rc
 vendor/etc/lm/AdaptLaunchFeature.xml
 vendor/etc/lm/AppClassifierFeature.xml
 vendor/etc/lm/GameOptimizationFeature.xml
-vendor/etc/NOTICE_GPL.html.gz
 vendor/etc/pm_test_item_config.xml
 vendor/etc/qa_test.xml
 vendor/etc/screen_light.xml
@@ -2165,19 +2178,20 @@ vendor/lib/libdng_sdk.so
 vendor/lib/libfastcrc.so
 vendor/lib/libft2vendor.so
 vendor/lib/libGPMTEEC_vendor.so
+vendor/lib/libhta_hexagon_runtime.so
 vendor/lib/libloc2jnibridge.so
 vendor/lib/libmt.so
 vendor/lib/libnanopb.so
 vendor/lib/libnpu.so
 vendor/lib/libqcbor.so
 vendor/lib/libqdma.so
+vendor/lib/librice.so
 vendor/lib/libsi.so
 vendor/lib/libsn100u_fw.so
 vendor/lib/libsysmon_cdsp_skel.so
 vendor/lib/libteeclientjni.so
 vendor/lib/libultrasound.so
 vendor/lib/libwapi_cert.so
-vendor/lib/libwvkeybox.so
 vendor/lib64/hw/displayfeature.default.so
 vendor/lib64/jcos_nq_client.so
 vendor/lib64/libalAILDC.so
@@ -2197,6 +2211,7 @@ vendor/lib64/libflaw.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libgameoptfeature.so
 vendor/lib64/libGPMTEEC_vendor.so
+vendor/lib64/libhta_hexagon_runtime.so
 vendor/lib64/libloc2jnibridge.so
 vendor/lib64/libmt.so
 vendor/lib64/libmt@1.2.so
@@ -2208,11 +2223,11 @@ vendor/lib64/libnpu.so
 vendor/lib64/libpcap.so
 vendor/lib64/libqcbor.so
 vendor/lib64/libreffeature.so
+vendor/lib64/librice.so
 vendor/lib64/libsi.so
 vendor/lib64/libskewknob.so
 vendor/lib64/libteeclientjni.so
 vendor/lib64/libultrasound.so
 vendor/lib64/libwapi_cert.so
-vendor/lib64/libwvkeybox.so
 vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client.so

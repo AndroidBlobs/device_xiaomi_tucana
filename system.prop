@@ -14,6 +14,8 @@ ro.vendor.display.sensortype=2
 # prop for amoled panel
 ro.display.type=oled
 
+ro.fod.dimlayer.enable=1
+
 # displayfeature use poll to monitor backlight brightness
 ro.xiaomi.bl.poll=true
 #support night mode 2.0
@@ -27,6 +29,8 @@ ro.whitepoint_calibration_enable=false
 #Property for display feature histogram
 ro.displayfeature.histogram.enable=true
 
+#property for non-game mode panel direction
+ro.vendor.touchfeature.type=2
 #
 # from device/xiaomi/sm6150_common/common_ro.prop
 #
@@ -302,6 +306,8 @@ persist.radio.dynamic_sar=true
 sys.displayfeature_hidl=true
 #system property for HBM mode
 sys.displayfeature.hbm.enable=true
+#system property for DC backlight
+persist.displayfeature.dc_backlight.enable=false
 
 #system prop for Bluetooth TWS+ feature
 persist.vendor.btstack.enable.twsplus=true
