@@ -17,7 +17,7 @@ PRODUCT_MODEL := Mi Note 10
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 TARGET_VENDOR := xiaomi
 TARGET_VENDOR_PRODUCT_NAME := tucana
-PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="tucana-user 9 PKQ1.190302.001 V11.0.13.0.PFDEUXM release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="tucana-user 9 PKQ1.190302.001 V11.0.11.0.PFDEUXM release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := Xiaomi/tucana_eea/tucana:9/PKQ1.190302.001/V11.0.13.0.PFDEUXM:user/release-keys
+BUILD_FINGERPRINT := Xiaomi/tucana_eea/tucana:9/PKQ1.190302.001/V11.0.11.0.PFDEUXM:user/release-keys

@@ -116,9 +116,6 @@ on post-fs-data
     chmod 0644 /dev/elliptic1
     mkdir /data/vendor/charge_logger 0771 system system
     mkdir /data/vendor/nfc 0770 nfc nfc
-    chown system system /sys/class/drm/card0-DSI-1/dim_alpha
-    chown system system /sys/class/drm/card0-DSI-1/fod_ui_ready
-    chown system system /sys/class/drm/card0-DSI-1/dim_layer_enable
 
 on property:ro.boot.factorybuild=1
     exec_start wait_for_keymaster
